@@ -7,7 +7,7 @@ const init = () => {
     let hasEdited = false;
     let scrollBarSync = false;
 
-    const localStorageNamespace = 'com.markdownlivepreview';
+    const localStorageNamespace = 'com.preview.lucverse';
     const localStorageKey = 'last_state';
     const localStorageScrollBarKey = 'scroll_bar_settings';
     const localStorageThemeKey = 'theme_settings';
@@ -52,11 +52,11 @@ _You **can** combine them_
 
 ## Images
 
-![This is an alt text.](/image/Markdown-mark.svg "This is a sample image.")
+![This is an alt text.](/image/preview.svg "This is a sample image.")
 
 ## Links
 
-You may be using [Markdown Live Preview](https://markdownlivepreview.com/).
+You may be using [Markdown Live Preview](https://preview.lucverse.com/).
 
 ## Blockquotes
 
@@ -312,7 +312,7 @@ This web site is using ${"`"}markedjs/marked${"`"}.
         if (last === null || last === undefined) {
             try {
                 // fallback to raw localStorage boot key used by inline script
-                const raw = localStorage.getItem('com.markdownlivepreview_theme');
+                const raw = localStorage.getItem('com.preview.lucverse_theme');
                 if (raw === 'dark') return true;
                 if (raw === 'light') return false;
             } catch (e) {
@@ -331,7 +331,7 @@ This web site is using ${"`"}markedjs/marked${"`"}.
         let expiredAt = new Date(2099, 1, 1);
         Storehouse.setItem(localStorageNamespace, localStorageThemeKey, settings, expiredAt);
         try {
-            localStorage.setItem('com.markdownlivepreview_theme', settings ? 'dark' : 'light');
+            localStorage.setItem('com.preview.lucverse_theme', settings ? 'dark' : 'light');
         } catch (e) {
             // ignore storage errors
         }
